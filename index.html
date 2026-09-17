@@ -4,6 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>rinifolio ✧˖°🖊</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=MedievalSharp&family=Press+Start+2P&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+        margin: 0;
+        font-family: "Chewy", cursive;
+        color: #fff;
+        background-image: url('whimsybg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        }
+
+        h1, h2, h3, p, button, input, textarea {
+          font-family: inherit;
+        }
+
+        .title-box {
+            text-align: center;
+            margin-top: 20px;
+            
+        }
+
+        .tabbutton, .savebutton {
+            background-color: #a8dbaa;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
   </head>
   <body>
     <div class="title-box">
@@ -179,18 +215,122 @@
       </div>
     </div>
     <script>
-  function openTab(tabId) {
-    const tabs = document.querySelectorAll('.tabcontent');
+      function openTab(tabId) {
+        const tabs = document.querySelectorAll('.tabcontent');
 
-    tabs.forEach((tab) => {
-      tab.style.display = 'none';
-    });
+        tabs.forEach((tab) => {
+          tab.style.display = 'none';
+        });
 
-    const selectedTab = document.getElementById(tabId);
-    if (selectedTab) {
-      selectedTab.style.display = 'block';
-    }
-  }
-</script>
+        const selectedTab = document.getElementById(tabId);
+        if (selectedTab) {
+          selectedTab.style.display = 'block';
+        }
+      }
+
+      function triggerUpload(bookNumber) {
+        const fileInput = document.getElementById(`file-input-${bookNumber}`);
+        if (fileInput) {
+          fileInput.click();
+        }
+      }
+
+      function previewImage(event, bookNumber) {
+        const file = event.target.files && event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const img = document.getElementById(`book-img-${bookNumber}`);
+          const uploadText = document.getElementById(`upload-text-${bookNumber}`);
+
+          if (img) {
+            img.src = e.target.result;
+            img.style.display = 'block';
+          }
+
+          if (uploadText) {
+            uploadText.style.display = 'none';
+          }
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+      function saveOwnerInfo() {
+        const ownerInfo = {
+          name: document.getElementById('info-name').value,
+          date: document.getElementById('info-date').value,
+          email: document.getElementById('info-email').value,
+          phone: document.getElementById('info-phone').value
+        };
+
+        localStorage.setItem('rinifolio-owner-info', JSON.stringify(ownerInfo));
+        alert('Owner info saved!');
+      }
+
+      function saveProjects() {
+        const projects = [];
+
+        for (let i = 1; i <= 9; i++) {
+          const titleInput = document.getElementById(`project-title-${i}`);
+          const descriptionInput = document.getElementById(`project-description-${i}`);
+          const image = document.getElementById(`book-img-${i}`);
+
+          const project = {
+            title: titleInput ? titleInput.value : '',
+            description: descriptionInput ? descriptionInput.value : '',
+            image: image && image.src ? image.src : ''
+          };
+
+          if (project.title || project.description || project.image) {
+            projects.push(project);
+          }
+        }
+
+        localStorage.setItem('rinifolio-projects', JSON.stringify(projects));
+        alert('Projects saved!');
+      }
+
+      function loadOwnerInfo() {
+        const savedOwnerInfo = JSON.parse(localStorage.getItem('rinifolio-owner-info') || '{}');
+
+        document.getElementById('info-name').value = savedOwnerInfo.name || '';
+        document.getElementById('info-date').value = savedOwnerInfo.date || '';
+        document.getElementById('info-email').value = savedOwnerInfo.email || '';
+        document.getElementById('info-phone').value = savedOwnerInfo.phone || '';
+      }
+
+      function loadProjects() {
+        const savedProjects = JSON.parse(localStorage.getItem('rinifolio-projects') || '[]');
+
+        savedProjects.forEach((project, index) => {
+          const titleInput = document.getElementById(`project-title-${index + 1}`);
+          const descriptionInput = document.getElementById(`project-description-${index + 1}`);
+          const image = document.getElementById(`book-img-${index + 1}`);
+          const uploadText = document.getElementById(`upload-text-${index + 1}`);
+
+          if (titleInput) titleInput.value = project.title || '';
+          if (descriptionInput) descriptionInput.value = project.description || '';
+
+          if (image && project.image) {
+            image.src = project.image;
+            image.style.display = 'block';
+          }
+
+          if (uploadText && project.image) {
+            uploadText.style.display = 'none';
+          }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        loadOwnerInfo();
+        loadProjects();
+
+        document.getElementById('save-info-btn')?.addEventListener('click', saveOwnerInfo);
+        document.getElementById('save-projects-btn')?.addEventListener('click', saveProjects);
+      });
+    </script>
   </body>
 </html>

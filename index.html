@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rinifolio ✧˖°🖊</title>
+  </head>
+  <body>
+    <div class="title-box">
+      <h1 id="main-title">rinifolio: your personal portfolio</h1>
+      <!-- tabs -->
+    </div>
+
+    <button class="tabbutton" onclick="openTab('tab1')">portfolio info 🖋</button>
+    <button class="tabbutton" onclick="openTab('tab2')">projects🖋</button>
+
+    <!-- personal info -->
+    <div id="tab1" class="tabcontent" style="display: block">
+      <div class="card-header">
+        <p>portfolio owner info ✎ᝰ.</p>
+      </div>
+
+      <div class="card-body" style="padding: 20px;">
+        <p class="centered-item">your journey stars here 🕮</p>
+
+        <div class="centered-item">
+          name: <input type="text" id="info-name" class="form-control" placeholder="type name..." />
+        </div>
+        <div class="centered-item">
+          date made: <input type="text" id="info-date" class="form-control" placeholder="mm/dd/yy" />
+        </div>
+        <div class="centered-item">
+          email: <input type="text" id="info-email" class="form-control" placeholder="type email..." />
+        </div>
+        <div class="centered-item">
+          phone: <input type="text" id="info-phone" class="form-control" placeholder="type phone..." />
+        </div>
+        <div class="centered-item">
+          about: <textarea id="info-about" class="form-control" placeholder="tell us about yourself..." ></textarea>
+        </div>
+
+        <button id="save-info-btn" class="savebutton" style="margin-top: 15px;">save info!</button>
+      </div>
+    </div>
+
+    <div id="tab2" class="tabcontent" style="display: none;">
+      <div class="book-header-pill">
+        <h2>portfolio projects𓂃✍︎</h2>
+        <p>add your projects here ₍^. .^₎⟆</p>
+        <button id="save-projects-btn" class="savebutton" style="margin-top: 10px;">save projects!</button>
+      </div>
+
+      <div class="book-grid">
+        <!-- book card 1 -->
+        <div class="book-card">
+          <div class="cover-upload-box" onclick="triggerUpload(1)">
+            <img id="book-img-1" src="" style="display:none;" />
+            <span id="upload-text-1">click to add cover ✧</span>
+            <input type="file" id="file-input-1" accept="image/*" onchange="previewImage(event, 1)" hidden />
+          </div>
+
+          <div class="project-info">
+            <input type="text" id="project-title-1" class="form-control" placeholder="project title..." />
+            <textarea id="project-description-1" class="form-control" placeholder="project description..."></textarea>
+          </div>
+        </div>
+
+        <!-- book card 2 -->
+        <div class="book-card">
+          <div class="cover-upload-box" onclick="triggerUpload(2)">
+            <img id="book-img-2" src="" style="display:none;" />
+            <span id="upload-text-2">click to add cover ✧</span>
+            <input type="file" id="file-input-2" accept="image/*" onchange="previewImage(event, 2)" hidden />
+          </div>
+
+          <div class="project-info">
+            <input type="text" id="project-title-2" class="form-control" placeholder="project title..." />
+            <textarea id="project-description-2" class="form-control" placeholder="project description..."></textarea>
+          </div>
+        </div>
+
+        <!-- book card 3 -->
+        <div class="book-card">
+          <div class="cover-upload-box" onclick="triggerUpload(3)">
+            <img id="book-img-3" src="" style="display:none;" />
+            <span id="upload-text-3">click to add cover ✧</span>
+            <input type="file" id="file-input-3" accept="image/*" onchange="previewImage(event, 3)" hidden />
+          </div>
+
+          <div class="project-info">
+            <input type="text" id="project-title-3" class="form-control" placeholder="project title..." />
+            <textarea id="project-description-3" class="form-control" placeholder="project description..."></textarea>
+          </div>
+        </div>
+
+        <!-- book card 4 -->
+        <div class="book-card">
+          <div class="cover-upload-box" onclick="triggerUpload(4)">
+            <img id="book-img-4" src="" style="display:none;" />
+            <span id="upload-text-4">click to add cover ✧</span>
+            <input type="file" id="file-input-4" accept="image/*" onchange="previewImage(event, 4)" hidden />
+          </div>
+
+          <div class="project-info">
+            <input type="text" id="project-title-4" class="form-control" placeholder="project title..." />
+            <textarea id="project-description-4" class="form-control" placeholder="project description..."></textarea>
+          </div>
+        </div>
+
+        <!-- book card 5 -->
+        <div class="book-card">
+          <div class="cover-upload-box" onclick="triggerUpload(5)">
+            <img id="book-img-5" src="" style="display:none;" />
+            <span id="upload-text-5">click to add cover ✧</span>
+            <input type="file" id="file-input-5" accept="image/*" onchange="previewImage(event, 5)" hidden />
+          </div>
+
+          <div class="project-info">
+            <input type="text" id="project-title-5" class="form-control" placeholder="project title..." />
+            <textarea id="project-description-5" class="form-control" placeholder="project description..."></textarea>
+          </div>
+        </div>
+
+        <!-- book card 6 -->
+        <div class="book-card">
+          <div class="cover-upload-box" onclick="triggerUpload(6)">
+            <img id="book-img-6" src="" style="display:none;" />
+            <span id="upload-text-6">click to add cover ✧</span>
+            <input type="file" id="file-input-6" accept="image/*" onchange="previewImage(event, 6)" hidden />
+          </div>
+
+          <div class="project-info">
+            <input type="text" id="project-title-6" class="form-control" placeholder="project title..." />
+            <textarea id="project-description-6" class="form-control" placeholder="project description..."></textarea>
+          </div>
+        </div>
+
+        <!-- book card 7 -->
+        <div class="book-card">
+          <div class="cover-upload-box" onclick="triggerUpload(7)">
+            <img id="book-img-7" src="" style="display:none;" />
+            <span id="upload-text-7">click to add cover ✧</span>
+            <input type="file" id="file-input-7" accept="image/*" onchange="previewImage(event, 7)" hidden />
+          </div>
+
+          <div class="project-info">
+            <input type="text" id="project-title-7" class="form-control" placeholder="project title..." />
+            <textarea id="project-description-7" class="form-control" placeholder="project description..."></textarea>
+          </div>
+        </div>
+
+        <!-- book card 8 -->
+        <div class="book-card">
+          <div class="cover-upload-box" onclick="triggerUpload(8)">
+            <img id="book-img-8" src="" style="display:none;" />
+            <span id="upload-text-8">click to add cover ✧</span>
+            <input type="file" id="file-input-8" accept="image/*" onchange="previewImage(event, 8)" hidden />
+          </div>
+
+          <div class="project-info">
+            <input type="text" id="project-title-8" class="form-control" placeholder="project title..." />
+            <textarea id="project-description-8" class="form-control" placeholder="project description..."></textarea>
+          </div>
+        </div>
+
+        <!-- book card 9 -->
+        <div class="book-card">
+          <div class="cover-upload-box" onclick="triggerUpload(9)">
+            <img id="book-img-9" src="" style="display:none;" />
+            <span id="upload-text-9">click to add cover ✧</span>
+            <input type="file" id="file-input-9" accept="image/*" onchange="previewImage(event, 9)" hidden />
+          </div>
+
+          <div class="project-info">
+            <input type="text" id="project-title-9" class="form-control" placeholder="project title..." />
+            <textarea id="project-description-9" class="form-control" placeholder="project description..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+  function openTab(tabId) {
+    const tabs = document.querySelectorAll('.tabcontent');
+
+    tabs.forEach((tab) => {
+      tab.style.display = 'none';
+    });
+
+    const selectedTab = document.getElementById(tabId);
+    if (selectedTab) {
+      selectedTab.style.display = 'block';
+    }
+  }
+</script>
+  </body>
+</html>

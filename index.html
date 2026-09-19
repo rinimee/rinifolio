@@ -4,103 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>rinifolio ✧˖°🖊</title>
+    <link rel="icon" href="bookcat.jpg"></link>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chewy&family=MedievalSharp&family=Press+Start+2P&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-        margin: 0;
-        font-family: "Chewy", cursive;
-        color: #fff;
-        background-image: url('whimsybg.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        }
-
-        h1, h2, h3, p, button, input, textarea {
-          font-family: inherit;
-        }
-
-        .title-box {
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-
-        }
-
-        .card-header {
-            padding: 20px;
-            background-color: #a8dbaa;
-            width: 60%;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px 10px 0px 0px;
-            height: 60px;
-            box-sizing: border-box;
-        }
-
-        .card-header p {
-          margin: 0;
-        }
-        .card-body {
-            padding: 20px;
-            background-color: #d7cadb;
-            width: 60%;
-            margin: 0 auto;
-            text-align: center;
-            border-radius: 0px 0px 10px 10px;
-          box-sizing: border-box;
-        }
-        .tab-buttons {
-          text-align: center;
-          margin-bottom: 24px;
-        }
-
-        .tabbutton, .savebutton {
-            background-color: #a8dbaa;
-            color: white;
-            padding: 10px 20px;
-            margin: 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 10px;
-        }
-
-        .form-control {
-          flex: 1;
-          min-width: 0;
-          padding: 10px;
-          margin: 10px 0;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-        }
-
-        .centered-item {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          margin: 10px auto;
-        }
-
-        .intro-text {
-          display: block;
-          margin: 0 0 20px;
-          text-align: center;
-        }
-
-        .form-label {
-          flex: 0 0 85px;
-          color: #493b50;
-          font-size: 18px;
-          text-align: right;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="title-box">
@@ -143,17 +51,17 @@
     </div>
 
     <div id="tab2" class="tabcontent" style="display: none;">
-      <div class="book-header-pill">
+      <div class="project-header-pill">
         <h2>portfolio projects𓂃✍︎</h2>
         <p>add your projects here ₍^. .^₎⟆</p>
-        <button id="save-projects-btn" class="savebutton" style="margin-top: 10px;">save projects!</button>
       </div>
+      <button id="save-projects-btn" class="savebutton" style="margin-top: 10px;">save projects!</button>
 
-      <div class="book-grid">
-        <!-- book card 1 -->
-        <div class="book-card">
+      <div class="project-grid">
+        <!-- project card 1 -->
+        <div class="project-card">
           <div class="cover-upload-box" onclick="triggerUpload(1)">
-            <img id="book-img-1" src="" style="display:none;" />
+            <img id="project-img-1" alt=""/>
             <span id="upload-text-1">click to add cover ✧</span>
             <input type="file" id="file-input-1" accept="image/*" onchange="previewImage(event, 1)" hidden />
           </div>
@@ -164,10 +72,10 @@
           </div>
         </div>
 
-        <!-- book card 2 -->
-        <div class="book-card">
+        <!-- project card 2 -->
+        <div class="project-card">
           <div class="cover-upload-box" onclick="triggerUpload(2)">
-            <img id="book-img-2" src="" style="display:none;" />
+            <img id="project-img-2" alt=""/>
             <span id="upload-text-2">click to add cover ✧</span>
             <input type="file" id="file-input-2" accept="image/*" onchange="previewImage(event, 2)" hidden />
           </div>
@@ -178,10 +86,10 @@
           </div>
         </div>
 
-        <!-- book card 3 -->
-        <div class="book-card">
+        <!-- project card 3 -->
+        <div class="project-card">
           <div class="cover-upload-box" onclick="triggerUpload(3)">
-            <img id="book-img-3" src="" style="display:none;" />
+            <img id="project-img-3" alt=""/>
             <span id="upload-text-3">click to add cover ✧</span>
             <input type="file" id="file-input-3" accept="image/*" onchange="previewImage(event, 3)" hidden />
           </div>
@@ -192,10 +100,10 @@
           </div>
         </div>
 
-        <!-- book card 4 -->
-        <div class="book-card">
+        <!-- project card 4 -->
+        <div class="project-card">
           <div class="cover-upload-box" onclick="triggerUpload(4)">
-            <img id="book-img-4" src="" style="display:none;" />
+            <img id="project-img-4" alt=""/>
             <span id="upload-text-4">click to add cover ✧</span>
             <input type="file" id="file-input-4" accept="image/*" onchange="previewImage(event, 4)" hidden />
           </div>
@@ -206,10 +114,10 @@
           </div>
         </div>
 
-        <!-- book card 5 -->
-        <div class="book-card">
+        <!-- project card 5 -->
+        <div class="project-card">
           <div class="cover-upload-box" onclick="triggerUpload(5)">
-            <img id="book-img-5" src="" style="display:none;" />
+            <img id="project-img-5" alt=""/>
             <span id="upload-text-5">click to add cover ✧</span>
             <input type="file" id="file-input-5" accept="image/*" onchange="previewImage(event, 5)" hidden />
           </div>
@@ -220,10 +128,10 @@
           </div>
         </div>
 
-        <!-- book card 6 -->
-        <div class="book-card">
+        <!-- project card 6 -->
+        <div class="project-card">
           <div class="cover-upload-box" onclick="triggerUpload(6)">
-            <img id="book-img-6" src="" style="display:none;" />
+            <img id="project-img-6" alt=""/>
             <span id="upload-text-6">click to add cover ✧</span>
             <input type="file" id="file-input-6" accept="image/*" onchange="previewImage(event, 6)" hidden />
           </div>
@@ -234,10 +142,10 @@
           </div>
         </div>
 
-        <!-- book card 7 -->
-        <div class="book-card">
+        <!-- project card 7 -->
+        <div class="project-card">
           <div class="cover-upload-box" onclick="triggerUpload(7)">
-            <img id="book-img-7" src="" style="display:none;" />
+            <img id="project-img-7" alt=""/>
             <span id="upload-text-7">click to add cover ✧</span>
             <input type="file" id="file-input-7" accept="image/*" onchange="previewImage(event, 7)" hidden />
           </div>
@@ -248,10 +156,10 @@
           </div>
         </div>
 
-        <!-- book card 8 -->
-        <div class="book-card">
+        <!-- project card 8 -->
+        <div class="project-card">
           <div class="cover-upload-box" onclick="triggerUpload(8)">
-            <img id="book-img-8" src="" style="display:none;" />
+            <img id="project-img-8" alt=""/>
             <span id="upload-text-8">click to add cover ✧</span>
             <input type="file" id="file-input-8" accept="image/*" onchange="previewImage(event, 8)" hidden />
           </div>
@@ -262,10 +170,10 @@
           </div>
         </div>
 
-        <!-- book card 9 -->
-        <div class="book-card">
+        <!-- project card 9 -->
+        <div class="project-card">
           <div class="cover-upload-box" onclick="triggerUpload(9)">
-            <img id="book-img-9" src="" style="display:none;" />
+            <img id="project-img-9" alt=""/>
             <span id="upload-text-9">click to add cover ✧</span>
             <input type="file" id="file-input-9" accept="image/*" onchange="previewImage(event, 9)" hidden />
           </div>
@@ -277,123 +185,6 @@
         </div>
       </div>
     </div>
-    <script>
-      function openTab(tabId) {
-        const tabs = document.querySelectorAll('.tabcontent');
-
-        tabs.forEach((tab) => {
-          tab.style.display = 'none';
-        });
-
-        const selectedTab = document.getElementById(tabId);
-        if (selectedTab) {
-          selectedTab.style.display = 'block';
-        }
-      }
-
-      function triggerUpload(bookNumber) {
-        const fileInput = document.getElementById(`file-input-${bookNumber}`);
-        if (fileInput) {
-          fileInput.click();
-        }
-      }
-
-      function previewImage(event, bookNumber) {
-        const file = event.target.files && event.target.files[0];
-        if (!file) return;
-
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          const img = document.getElementById(`book-img-${bookNumber}`);
-          const uploadText = document.getElementById(`upload-text-${bookNumber}`);
-
-          if (img) {
-            img.src = e.target.result;
-            img.style.display = 'block';
-          }
-
-          if (uploadText) {
-            uploadText.style.display = 'none';
-          }
-        };
-
-        reader.readAsDataURL(file);
-      }
-
-      function saveOwnerInfo() {
-        const ownerInfo = {
-          name: document.getElementById('info-name').value,
-          date: document.getElementById('info-date').value,
-          email: document.getElementById('info-email').value,
-          phone: document.getElementById('info-phone').value
-        };
-
-        localStorage.setItem('rinifolio-owner-info', JSON.stringify(ownerInfo));
-        alert('Owner info saved!');
-      }
-
-      function saveProjects() {
-        const projects = [];
-
-        for (let i = 1; i <= 9; i++) {
-          const titleInput = document.getElementById(`project-title-${i}`);
-          const descriptionInput = document.getElementById(`project-description-${i}`);
-          const image = document.getElementById(`book-img-${i}`);
-
-          const project = {
-            title: titleInput ? titleInput.value : '',
-            description: descriptionInput ? descriptionInput.value : '',
-            image: image && image.src ? image.src : ''
-          };
-
-          if (project.title || project.description || project.image) {
-            projects.push(project);
-          }
-        }
-
-        localStorage.setItem('rinifolio-projects', JSON.stringify(projects));
-        alert('Projects saved!');
-      }
-
-      function loadOwnerInfo() {
-        const savedOwnerInfo = JSON.parse(localStorage.getItem('rinifolio-owner-info') || '{}');
-
-        document.getElementById('info-name').value = savedOwnerInfo.name || '';
-        document.getElementById('info-date').value = savedOwnerInfo.date || '';
-        document.getElementById('info-email').value = savedOwnerInfo.email || '';
-        document.getElementById('info-phone').value = savedOwnerInfo.phone || '';
-      }
-
-      function loadProjects() {
-        const savedProjects = JSON.parse(localStorage.getItem('rinifolio-projects') || '[]');
-
-        savedProjects.forEach((project, index) => {
-          const titleInput = document.getElementById(`project-title-${index + 1}`);
-          const descriptionInput = document.getElementById(`project-description-${index + 1}`);
-          const image = document.getElementById(`book-img-${index + 1}`);
-          const uploadText = document.getElementById(`upload-text-${index + 1}`);
-
-          if (titleInput) titleInput.value = project.title || '';
-          if (descriptionInput) descriptionInput.value = project.description || '';
-
-          if (image && project.image) {
-            image.src = project.image;
-            image.style.display = 'block';
-          }
-
-          if (uploadText && project.image) {
-            uploadText.style.display = 'none';
-          }
-        });
-      }
-
-      document.addEventListener('DOMContentLoaded', () => {
-        loadOwnerInfo();
-        loadProjects();
-
-        document.getElementById('save-info-btn')?.addEventListener('click', saveOwnerInfo);
-        document.getElementById('save-projects-btn')?.addEventListener('click', saveProjects);
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
